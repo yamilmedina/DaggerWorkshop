@@ -4,8 +4,9 @@ import android.content.Context
 import android.content.Intent
 import com.phellipesilva.daggerworkshop.database.User
 import com.phellipesilva.featuretwo.view.FeatureTwoActivity
+import javax.inject.Inject
 
-class Navigator(
+class Navigator @Inject constructor(
     private val context: Context
 ) {
 

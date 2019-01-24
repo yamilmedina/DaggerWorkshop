@@ -1,4 +1,5 @@
 package com.phellipesilva.daggerworkshop.business
 
-class HelperClass {
-}
+import javax.inject.Inject
+
+class HelperClass @Inject constructor()

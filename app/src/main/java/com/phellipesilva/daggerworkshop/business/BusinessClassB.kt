@@ -1,6 +1,8 @@
 package com.phellipesilva.daggerworkshop.business
 
-class BusinessClassB(
+import javax.inject.Inject
+
+class BusinessClassB @Inject constructor(
     private val helperClass: HelperClass
 ) {
 
