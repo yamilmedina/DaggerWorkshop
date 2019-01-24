@@ -8,10 +8,12 @@ import com.phellipesilva.daggerworkshop.dagger.MainModule
 import com.phellipesilva.daggerworkshop.database.User
 import com.phellipesilva.daggerworkshop.presenter.MainPresenter
 import kotlinx.android.synthetic.main.activity_main.*
+import javax.inject.Inject
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var mainPresenter: MainPresenter
+    @Inject
+    lateinit var mainPresenter: MainPresenter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,6 +38,6 @@ class MainActivity : AppCompatActivity() {
 
     private fun initPresenter() {
         val applicationComponent = DaggerApplicationComponent.builder().mainModule(MainModule(this, this)).build()
-        mainPresenter = applicationComponent.getPresenter()
+        applicationComponent.inject(this)
     }
 }
