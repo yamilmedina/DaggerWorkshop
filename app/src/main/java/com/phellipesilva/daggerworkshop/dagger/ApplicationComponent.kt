@@ -1,10 +1,15 @@
 package com.phellipesilva.daggerworkshop.dagger
 
-import com.phellipesilva.daggerworkshop.view.MainActivity
+import android.content.Context
+import com.phellipesilva.daggerworkshop.database.UserDAO
+import com.phellipesilva.daggerworkshop.service.MainService
 import dagger.Component
 
-@Component(modules = [MainModule::class])
+@Component(modules = [DatabaseModule::class, ServiceModule::class])
 interface ApplicationComponent {
 
-    fun inject(mainActivity: MainActivity)
+    fun getUserDAO(): UserDAO
+    fun getMainService(): MainService
+    fun getContext(): Context
+
 }
