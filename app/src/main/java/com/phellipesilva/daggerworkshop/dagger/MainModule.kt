@@ -5,6 +5,7 @@ import androidx.room.Room
 import com.phellipesilva.daggerworkshop.database.UserDAO
 import com.phellipesilva.daggerworkshop.database.UserDatabase
 import com.phellipesilva.daggerworkshop.service.MainService
+import com.phellipesilva.daggerworkshop.view.MainActivity
 import dagger.Module
 import dagger.Provides
 import retrofit2.Retrofit
@@ -13,7 +14,10 @@ import java.util.concurrent.Executor
 import java.util.concurrent.Executors
 
 @Module
-class MainModule(private val context: Context) {
+class MainModule(private val context: Context, private val mainActivity: MainActivity) {
+
+    @Provides
+    fun providesMainActivity(): MainActivity = mainActivity
 
     @Provides
     fun providesContext(): Context = context

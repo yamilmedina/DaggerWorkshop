@@ -35,12 +35,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initPresenter() {
-        val applicationComponent = DaggerApplicationComponent.builder().mainModule(MainModule(this)).build()
-
-        val mainInteractor = applicationComponent.getInteractor()
-        val navigator = applicationComponent.getNavigator()
-        val classA = applicationComponent.getBusinessClassA()
-        val classB = applicationComponent.getBusinessClassB()
-        mainPresenter = MainPresenter(this, mainInteractor, navigator, classA, classB)
+        val applicationComponent = DaggerApplicationComponent.builder().mainModule(MainModule(this, this)).build()
+        mainPresenter = applicationComponent.getPresenter()
     }
 }
